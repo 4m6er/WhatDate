@@ -1,12 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 using namespace std;
 
 void WhatDate(int);
-int Y=2021;
-int M=10;
-int D=21;
+time_t now = time(0);
+
+tm * ltm = localtime(&now);
+int Y=1900+ltm->tm_year;
+int M=1+ltm->tm_mon;
+int D=ltm->tm_mday;
+
 vector<int> arr={31,28,31,30,31,30,31,31,30,31,30,31};
 vector<int> arr_special={31,29,31,30,31,30,31,31,30,31,30,31};
 
